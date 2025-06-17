@@ -1,7 +1,10 @@
 import random
+
+
 def play_game():
     print("✊ ✋ ✌ Welcome to Rock-Paper-Scissors!")
     choices = ["rock", "paper", "scissors"]
+    
     while True:
         user_choice = input("Enter rock, paper, or scissors (or 'quit' to exit): ").strip().lower()
         
@@ -26,6 +29,7 @@ def play_game():
             print("🏆 You win!")
         else:
             print("💻 Computer wins!")
+        
         print("-" * 50)
 
 
