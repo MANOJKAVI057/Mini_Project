@@ -1,40 +1,36 @@
 import random
 
-
 def play_game():
-    print("✊ ✋ ✌ Welcome to Rock-Paper-Scissors!")
-    choices = ["rock", "paper", "scissors"]
-    
-    while True:
-        user_choice = input("Enter rock, paper, or scissors (or 'quit' to exit): ").strip().lower()
-        
-        if user_choice == "quit":
-            print("👋 Thanks for playing!")
-            break
-        
-        if user_choice not in choices:
-            print("⚠️ Invalid choice. Please try again.")
-            continue
-        
-        computer_choice = random.choice(choices)
-        print(f"Computer chose: {computer_choice}")
-        
-        if user_choice == computer_choice:
-            print("🤝 It's a tie!")
-        elif (
-            (user_choice == "rock" and computer_choice == "scissors") or
-            (user_choice == "paper" and computer_choice == "rock") or
-            (user_choice == "scissors" and computer_choice == "paper")
-        ):
-            print("🏆 You win!")
-        else:
-            print("💻 Computer wins!")
-        
-        print("-" * 50)
+    print("🚪 Welcome to the Door Challenge!")
+    print("You stand before 3 mysterious doors...")
+    print("Choose wisely — one leads to treasure, one to safety, and one to a trap!")
+    
+    while True:
+        try:
+            choice = int(input("Pick a door (1, 2, or 3). Enter 0 to quit: "))
+        except ValueError:
+            print("⚠️ Please enter a valid number (1, 2, 3, or 0).")
+            continue
 
+        if choice == 0:
+            print("👋 Thanks for playing. Goodbye!")
+            break
+        
+        if choice not in [1, 2, 3]:
+            print("⚠️ Invalid door number. Please choose 1, 2, or 3.")
+            continue
+        
+        outcome = random.choice(["treasure", "safe", "trap"])
+        
+        if outcome == "treasure":
+            print(f"🎉 You opened door {choice} and found a chest of gold! 💰")
+        elif outcome == "safe":
+            print(f"😊 You opened door {choice} and found a quiet empty room. You're safe!")
+        else:
+            print(f"💀 You opened door {choice} and fell into a trap! Game over!")
+            break
+        
+        print("-" * 30)
 
 if __name__ == "__main__":
-    play_game()
-
-
-
+    play_game()
